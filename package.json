@@ -1,0 +1,16 @@
+{
+  "name": "first-loan-service",
+  "version": "1.0.0",
+  "description": "Multi-Banking Loan and Financial Portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "keywords": [],
+  "author": "DSA Subhajit Dutta",
+  "license": "ISC"
+}

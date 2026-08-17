@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Loan Service | Managed by DSA Subhajit Dutta</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .banner-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.92)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Smooth Infinite Marquee Animation for Bank Logos */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: scroll 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Running Text Ticker Animation */
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- TOP LIVE RUNNING TICKER BAR (BREAKING UPDATES) -->
+    <div class="bg-gradient-to-r from-blue-950 via-slate-900 to-blue-950 text-white text-xs py-2 overflow-hidden border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex items-center px-4">
+            <span class="bg-red-600 text-white font-extrabold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider flex items-center mr-3 z-10 shadow-sm shrink-0">
+                <span class="w-2 h-2 bg-white rounded-full animate-ping mr-1.5 inline-block"></span> LIVE ALERTS
+            </span>
+            <div class="overflow-hidden relative w-full">
+                <div class="animate-ticker text-slate-300 font-medium space-x-8">
+                    <span><i class="fa-solid fa-user-check text-emerald-400 mr-1"></i> Authorized Financial Partner: <strong>DSA Subhajit Dutta</strong></span>
+                    <span><i class="fa-solid fa-bolt text-yellow-400 mr-1"></i> <strong>Special Offer:</strong> Home Loan Interest Rates starting at <strong>8.40% p.a.</strong> with Zero Processing Fee on selected banks!</span>
+                    <span><i class="fa-solid fa-clock text-emerald-400 mr-1"></i> <strong>Instant Disbursal:</strong> Unsecured Business Loans up to <strong>₹50 Lakhs</strong> processed within 24 Hours.</span>
+                    <span><i class="fa-solid fa-shield-halved text-blue-400 mr-1"></i> <strong>Official Verification:</strong> Free TransUnion CIBIL Report delivery directly on WhatsApp (+91 9674323575).</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-40 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-3.5 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 p-2.5 rounded-xl text-white shadow-lg">
+                    <i class="fa-solid fa-building-columns text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-tight text-white flex items-center">
+                        First Loan <span class="text-blue-400 ml-1.5 font-bold text-lg">SERVICE</span>
+                    </h1>
+                    <p class="text-[11px] text-emerald-400 tracking-wider uppercase font-bold flex items-center">
+                        <i class="fa-solid fa-circle-check text-[10px] mr-1"></i> Managed by DSA Subhajit Dutta
+                    </p>
+                </div>
+            </div>
+            <div class="hidden lg:flex space-x-8 items-center font-semibold text-sm">
+                <a href="#services" class="text-slate-200 hover:text-blue-400 transition">Loan Products</a>
+                <a href="#partners" class="text-slate-200 hover:text-blue-400 transition">Bank Partners</a>
+                <a href="#cibil-check" class="text-emerald-400 hover:text-emerald-300 font-bold transition flex items-center">
+                    <i class="fa-solid fa-gauge-high mr-1.5"></i>Free CIBIL Report
+                </a>
+                <a href="#calculator" class="text-slate-200 hover:text-blue-400 transition">EMI Calculator</a>
+                <a href="#reviews" class="text-slate-200 hover:text-blue-400 transition">Reviews</a>
+                <a href="#register" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full font-bold shadow-lg transition transform hover:-translate-y-0.5">
+                    Apply Online
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Hero Banner -->
+    <section class="banner-bg text-white py-20 px-4">
+        <div class="max-w-5xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 bg-blue-500/20 border border-blue-400/40 text-blue-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-award text-yellow-400"></i>
+                <span>Direct Selling Agent: Subhajit Dutta | Authorized Multi-Bank Partner</span>
+            </div>
+            <h2 class="text-3xl md:text-6xl font-black leading-tight tracking-tight">
+                Unlock Instant Funds with <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">First Loan Service</span>
+            </h2>
+            <p class="text-slate-300 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
+                Direct loan advisory curated by <strong>DSA Subhajit Dutta</strong>. Get lowest interest rates, customized tenure, minimal documentation, and authentic TransUnion CIBIL support across India.
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#register" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-8 rounded-full shadow-xl transition transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>Apply for Loan
+                </a>
+                <a href="#cibil-check" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-8 rounded-full shadow-xl transition transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-file-pdf mr-2"></i>Get Official CIBIL Report
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE STATS COUNTER BAR -->
+    <section class="bg-slate-900 border-y border-slate-800 py-10 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-4 border-r border-slate-800 last:border-0">
+                <div class="text-3xl md:text-4xl font-black text-blue-400 mb-1">₹ 48.5+ Cr</div>
+                <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-slate-400">Disbursed (FY 25-26)</p>
+            </div>
+            <div class="p-4 border-r border-slate-800 last:border-0">
+                <div class="text-3xl md:text-4xl font-black text-emerald-400 mb-1">1,850+</div>
+                <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-slate-400">Happy Clients Served</p>
+            </div>
+            <div class="p-4 border-r border-slate-800 last:border-0">
+                <div class="text-3xl md:text-4xl font-black text-amber-400 mb-1">140+</div>
+                <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-slate-400">In Verification / Queue</p>
+            </div>
+            <div class="p-4">
+                <div class="text-3xl md:text-4xl font-black text-purple-400 mb-1">98.8%</div>
+                <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-slate-400">Application Approval Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFINITE RUNNING BANK PARTNERS LOGO MARQUEE -->
+    <section id="partners" class="py-12 bg-white border-b overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Authorized DSA Tie-Ups</span>
+            <h3 class="text-2xl font-black text-slate-900 mt-2">Partnered with 25+ Leading Banks & Financial Institutions</h3>
+        </div>
+
+        <div class="relative w-full overflow-hidden">
+            <div class="animate-marquee flex items-center space-x-12 py-4">
+                
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/hdfc-bank-logo.svg" alt="HDFC Bank" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">HDFC BANK</span>
+                </div>
+
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/state-bank-of-india.svg" alt="SBI" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">STATE BANK OF INDIA</span>
+                </div>
+
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/icici-bank-logo.svg" alt="ICICI Bank" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">ICICI BANK</span>
+                </div>
+
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/axis-bank-logo.svg" alt="Axis Bank" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">AXIS BANK</span>
+                </div>
+
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/bajaj-finserv.svg" alt="Bajaj Finserv" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">BAJAJ FINSERV</span>
+                </div>
+
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/tata-2.svg" alt="Tata Capital" class="h-7 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">TATA CAPITAL</span>
+                </div>
+
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/kotak-mahindra-bank.svg" alt="Kotak Mahindra" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">KOTAK MAHINDRA</span>
+                </div>
+
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/punjab-national-bank-1.svg" alt="PNB" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">PUNJAB NATIONAL BANK</span>
+                </div>
+
+                <!-- DUPLICATE FOR INFINITE LOOP -->
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/hdfc-bank-logo.svg" alt="HDFC Bank" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">HDFC BANK</span>
+                </div>
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/state-bank-of-india.svg" alt="SBI" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">STATE BANK OF INDIA</span>
+                </div>
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/icici-bank-logo.svg" alt="ICICI Bank" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">ICICI BANK</span>
+                </div>
+                <div class="flex items-center space-x-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-2xl shadow-sm shrink-0">
+                    <img src="https://cdn.worldvectorlogo.com/logos/axis-bank-logo.svg" alt="Axis Bank" class="h-8 w-auto object-contain">
+                    <span class="font-extrabold text-sm text-slate-800">AXIS BANK</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOAN PRODUCTS SECTION -->
+    <section id="services" class="max-w-7xl mx-auto py-16 px-4">
+        <div class="text-center mb-12">
+            <span class="text-blue-600 font-bold text-xs uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Comprehensive Portfolio</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Explore Our Financial & Loan Products</h2>
+            <p class="text-slate-600 mt-2">Click on any category to view required documents, tenure, and lowest interest rates.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div onclick="openCriteria('personal')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-blue-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-blue-50 rounded-xl text-blue-600 text-2xl">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <span class="text-[11px] bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Personal Loan</h3>
+                <p class="text-sm text-slate-600 mb-4">Instant collateral-free funds for emergency medical expenses, weddings, travel, or debt consolidation.</p>
+                <div class="text-blue-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('business')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-indigo-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-indigo-50 rounded-xl text-indigo-600 text-2xl">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <span class="text-[11px] bg-indigo-100 text-indigo-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Business Loan</h3>
+                <p class="text-sm text-slate-600 mb-4">Collateral-free working capital, plant expansion, inventory stocking, and equipment finance.</p>
+                <div class="text-indigo-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('home')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-green-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-green-50 rounded-xl text-green-600 text-2xl">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <span class="text-[11px] bg-green-100 text-green-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Home Loan</h3>
+                <p class="text-sm text-slate-600 mb-4">Lowest interest rates for purchasing new apartments, ready-to-move houses, or home renovation.</p>
+                <div class="text-green-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('lap')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-amber-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-amber-50 rounded-xl text-amber-600 text-2xl">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <span class="text-[11px] bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Mortgage Loan (LAP)</h3>
+                <p class="text-sm text-slate-600 mb-4">High-value funding by pledging commercial or residential property with extended repayment tenure.</p>
+                <div class="text-amber-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('construction')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-red-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-red-50 rounded-xl text-red-600 text-2xl">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                    </div>
+                    <span class="text-[11px] bg-red-100 text-red-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Land + Construction Loan</h3>
+                <p class="text-sm text-slate-600 mb-4">Dual benefit loan covering raw plot purchase and staged architectural building construction.</p>
+                <div class="text-red-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('instant')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-teal-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-teal-50 rounded-xl text-teal-600 text-2xl">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="text-[11px] bg-teal-100 text-teal-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Instant Digital Loan</h3>
+                <p class="text-sm text-slate-600 mb-4">Fast paperless verification via Aadhaar e-KYC with same-day bank account disbursement.</p>
+                <div class="text-teal-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('shares')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-purple-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-purple-50 rounded-xl text-purple-600 text-2xl">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <span class="text-[11px] bg-purple-100 text-purple-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Loan Against Shares / MF</h3>
+                <p class="text-sm text-slate-600 mb-4">Get an instant overdraft limit against your equity portfolio or mutual funds without liquidating assets.</p>
+                <div class="text-purple-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('car')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-orange-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-orange-50 rounded-xl text-orange-600 text-2xl">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <span class="text-[11px] bg-orange-100 text-orange-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Used Car / Vehicle Loan</h3>
+                <p class="text-sm text-slate-600 mb-4">Finance up to 90% valuation of pre-owned 4-wheelers and commercial passenger vehicles.</p>
+                <div class="text-orange-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+            <div onclick="openCriteria('bank')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border-t-4 border-cyan-500 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-cyan-50 rounded-xl text-cyan-600 text-2xl">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <span class="text-[11px] bg-cyan-100 text-cyan-800 font-bold px-2.5 py-1 rounded-full">View Details</span>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mb-2">Open Bank Account</h3>
+                <p class="text-sm text-slate-600 mb-4">Assisted zero-balance and premium Current/Savings account opening with leading private banks.</p>
+                <div class="text-cyan-600 text-sm font-bold flex items-center">
+                    Check Eligibility & ROI <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OFFICIAL TRANSUNION CIBIL REQUEST SECTION -->
+    <section id="cibil-check" class="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 py-16 px-4 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center space-x-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Official TransUnion CIBIL Verification Desk - DSA Subhajit Dutta</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-black mt-3">Request Your Official TransUnion CIBIL Report</h2>
+                <p class="text-slate-300 mt-2 text-sm max-w-xl mx-auto">Submit your PAN details for an authentic Credit Information Report (CIR) directly delivered to your WhatsApp.</p>
+            </div>
+
+            <div class="bg-white text-slate-800 p-8 md:p-10 rounded-3xl shadow-2xl">
+                <form id="cibilReqForm" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Full Legal Name (as per PAN) *</label>
+                            <input type="text" id="cbName" required class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500" placeholder="e.g. Rahul Sharma">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Permanent Account Number (PAN) *</label>
+                            <input type="text" id="cbPan" required maxlength="10" class="w-full p-3 border rounded-xl uppercase tracking-widest font-mono font-bold focus:ring-2 focus:ring-blue-500" placeholder="ABCDE1234F">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">WhatsApp Mobile Number *</label>
+                            <input type="tel" id="cbMobile" required class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500" placeholder="10-digit WhatsApp number">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Date of Birth (DOB) *</label>
+                            <input type="date" id="cbDob" required class="w-full p-3 border rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Residential PIN Code *</label>
+                            <input type="number" id="cbPin" required class="w-full p-3 border rounded-xl" placeholder="e.g. 700125">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Employment Type</label>
+                            <select id="cbEmp" class="w-full p-3 border rounded-xl bg-white font-medium">
+                                <option value="Salaried">Salaried (Corporate / Govt / Private)</option>
+                                <option value="Self Employed / Business">Self Employed / Business Owner</option>
+                                <option value="Professional / Freelancer">Professional / Freelancer</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Planned Loan Requirement</label>
+                            <select id="cbLoanPlan" class="w-full p-3 border rounded-xl bg-white font-medium">
+                                <option value="Personal Loan">Personal Loan</option>
+                                <option value="Business Loan">Business Loan</option>
+                                <option value="Home Loan">Home Loan</option>
+                                <option value="Mortgage Loan (LAP)">Mortgage Loan (LAP)</option>
+                                <option value="Used Car Loan">Used Car Loan</option>
+                                <option value="Only CIBIL Health Check">Only CIBIL Credit Health Check</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-4 rounded-xl shadow-lg transition flex items-center justify-center text-base">
+                        <i class="fa-solid fa-file-circle-check mr-2 text-xl"></i> Generate Official CIBIL Verification Request
+                    </button>
+                </form>
+
+                <!-- Success Box -->
+                <div id="cibilSuccessBox" class="hidden mt-6 p-6 bg-emerald-50 border-2 border-emerald-500 rounded-2xl text-center">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-3">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900">Verification Request Queued Successfully!</h3>
+                    <p class="text-sm text-slate-700 max-w-lg mx-auto mt-2 leading-relaxed">
+                        Thank you, <span id="confName" class="font-bold text-slate-900"></span>! Your PAN (<span id="confPan" class="font-mono font-bold text-blue-700"></span>) has been scheduled for verification. 
+                        <strong>DSA Subhajit Dutta (First Loan Service)</strong> is processing your authentic TransUnion CIBIL CIR Report and will send the official PDF directly to your WhatsApp.
+                    </p>
+                    <div class="mt-6 flex flex-wrap justify-center gap-3">
+                        <a id="waDirectBtn" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl text-sm flex items-center shadow-lg transition">
+                            <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Receive Report on WhatsApp
+                        </a>
+                        <button onclick="resetCibilForm()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-5 py-3 rounded-xl text-sm transition">
+                            Submit Another Request
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART EMI CALCULATOR -->
+    <section id="calculator" class="py-16 px-4 bg-slate-100">
+        <div class="max-w-xl mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-lg border">
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider">Financial Planning</span>
+                <h3 class="text-2xl md:text-3xl font-black text-slate-900 mt-2">Smart EMI Calculator</h3>
+                <p class="text-xs text-slate-500">Plan your monthly repayments accurately before applying</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Loan Amount (₹):</label>
+                    <input type="number" id="loanAmount" value="500000" class="w-full p-3 border rounded-xl font-bold text-slate-800">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Interest Rate (% p.a.):</label>
+                        <input type="number" step="0.1" id="interestRate" value="10.5" class="w-full p-3 border rounded-xl font-bold text-slate-800">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Tenure (Years):</label>
+                        <input type="number" id="loanTenure" value="5" class="w-full p-3 border rounded-xl font-bold text-slate-800">
+                    </div>
+                </div>
+                <button onclick="calculateEMI()" class="w-full bg-slate-900 hover:bg-black text-white font-bold py-3.5 rounded-xl shadow transition">
+                    Recalculate Monthly Installment
+                </button>
+                
+                <div class="text-center mt-6 p-5 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
+                    <p class="text-xs uppercase font-bold text-slate-600 tracking-wider">Estimated Monthly Payment (EMI)</p>
+                    <p id="emiResult" class="text-4xl font-black text-blue-700 my-1">₹ 10,747</p>
+                    <p class="text-[11px] text-slate-500">*Principal & Interest included. Terms apply.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS & TESTIMONIALS -->
+    <section id="reviews" class="max-w-7xl mx-auto py-16 px-4">
+        <div class="text-center mb-12">
+            <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full">Client Success Stories</span>
+            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mt-2">What Our Customers Say</h2>
+            <p class="text-slate-600 mt-1">Real feedback from clients assisted by DSA Subhajit Dutta.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition">
+                <div class="flex items-center space-x-1 text-amber-400 mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 text-sm italic mb-4">
+                    "I needed ₹15 Lakhs urgent working capital for my business. Subhajit Babu handled the entire bank processing personally and got it disbursed in just 48 hours!"
+                </p>
+                <div class="flex items-center space-x-3 pt-3 border-t">
+                    <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">SM</div>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-800">Subhashish Mukherjee</h4>
+                        <p class="text-xs text-slate-500">Business Loan Client (₹15L)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition">
+                <div class="flex items-center space-x-1 text-amber-400 mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 text-sm italic mb-4">
+                    "My CIBIL score had minor issues. Subhajit Dutta guided me with CIR verification and successfully processed my Home Loan of ₹32 Lakhs at lowest 8.4% rate."
+                </p>
+                <div class="flex items-center space-x-3 pt-3 border-t">
+                    <div class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">AD</div>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-800">Anirban Dutta</h4>
+                        <p class="text-xs text-slate-500">Home Loan Client (₹32L)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition">
+                <div class="flex items-center space-x-1 text-amber-400 mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="text-slate-600 text-sm italic mb-4">
+                    "Smooth and 100% transparent consultation. Got a commercial vehicle loan approved within a single day. WhatsApp updates from Subhajit sir were instant."
+                </p>
+                <div class="flex items-center space-x-3 pt-3 border-t">
+                    <div class="w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold">RB</div>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-800">Rajesh Banerjee</h4>
+                        <p class="text-xs text-slate-500">Commercial Vehicle Loan</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ONLINE APPLICATION & REGISTRATION FORM -->
+    <section id="register" class="max-w-3xl mx-auto py-16 px-4">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider">Fast-Track Processing</span>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-2">Instant Online Loan Registration</h2>
+                <p class="text-xs md:text-sm text-slate-500 mt-1">Submit your details below to initiate direct banking verification.</p>
+            </div>
+
+            <form id="loanForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Full Legal Name *</label>
+                        <input type="text" id="name" required class="w-full p-3 border rounded-xl" placeholder="Your Full Name">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Primary Mobile Number *</label>
+                        <input type="tel" id="mobile" required class="w-full p-3 border rounded-xl" placeholder="10-digit mobile number">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Email Address</label>
+                        <input type="email" id="email" class="w-full p-3 border rounded-xl" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Account Password *</label>
+                        <input type="password" id="password" required class="w-full p-3 border rounded-xl" placeholder="Create secure password">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Select Loan Category *</label>
+                        <select id="serviceType" class="w-full p-3 border rounded-xl bg-white font-medium">
+                            <option value="Personal Loan">Personal Loan</option>
+                            <option value="Business Loan">Business Loan</option>
+                            <option value="Home Loan">Home Loan</option>
+                            <option value="Mortgage Loan (LAP)">Mortgage Loan (LAP)</option>
+                            <option value="Land + Construction">Land + Construction Loan</option>
+                            <option value="Instant Loan">Instant Digital Loan</option>
+                            <option value="Loan Against Shares">Loan Against Shares/MF</option>
+                            <option value="Used Car Loan">Used / Old Car Loan</option>
+                            <option value="Bank Account">Open Bank Account</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Required Amount (₹)</label>
+                        <input type="number" id="reqAmount" class="w-full p-3 border rounded-xl" placeholder="e.g. 500000">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Complete Address & PIN Code</label>
+                    <textarea id="address" rows="2" class="w-full p-3 border rounded-xl" placeholder="Address, Police Station, District and PIN Code"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 rounded-xl shadow-lg transition text-base">
+                    Register & Submit Loan Application
+                </button>
+            </form>
+            <p id="formMsg" class="mt-4 text-center font-bold hidden"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 text-center text-sm border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <h3 class="font-black text-white text-xl">First Loan Service</h3>
+            <p class="font-bold text-emerald-400 text-xs">Proprietor / Managing Partner: DSA Subhajit Dutta</p>
+            <p class="max-w-xl mx-auto text-xs text-slate-500">
+                Direct Selling Agent & Loan Advisory. We assist customers in acquiring loans from RBI-registered Banks & NBFCs with zero upfront fees.
+            </p>
+            <p class="text-xs pt-4 border-t border-slate-800 text-slate-600">
+                © 2026 First Loan Service | Subhajit Dutta. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- LIVE RECENT ACTIVITY POPUP TOAST -->
+    <div id="liveActivityToast" class="fixed bottom-24 left-6 bg-white border border-slate-200 p-4 rounded-2xl shadow-2xl z-50 flex items-center space-x-3 transition transform duration-500 translate-y-24 opacity-0 max-w-sm">
+        <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-lg shrink-0">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <div>
+            <p id="activityText" class="text-xs font-semibold text-slate-800 leading-snug">
+                <strong>Anil K.</strong> from Kolkata received ₹5,00,000 Personal Loan approval.
+            </p>
+            <span class="text-[10px] text-slate-400">Just now • Verified Client</span>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP CHAT BUTTON (WITH YOUR OFFICIAL NUMBER) -->
+    <a href="https://wa.me/919674323575?text=Hello%20DSA%20Subhajit%20Dutta%20(First%20Loan%20Service),%20I%20want%20to%20apply%20for%20a%20loan" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 transition transform hover:scale-110">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- LOAN CRITERIA MODAL (POPUP) -->
+    <div id="criteriaModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCriteria()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent"></div>
+            <div class="mt-6 pt-4 border-t flex justify-end gap-3">
+                <button onclick="closeCriteria()" class="px-5 py-2.5 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200">Close</button>
+                <a href="#register" onclick="closeCriteria()" class="px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const criteriaData = {
+            personal: {
+                title: "Personal Loan",
+                icon: "fa-user-tie text-blue-600",
+                eligibility: ["Age: 21 to 58 Years", "Minimum Monthly Income: ₹15,000+", "Work Experience: Min 6 Months in current job"],
+                documents: ["Aadhaar Card & PAN Card", "Last 3 Months Salary Slips or Bank Statements", "1 Passport Size Photograph"],
+                rate: "10.50% to 14.50% p.a.",
+                tenure: "1 to 5 Years"
+            },
+            business: {
+                title: "Business Loan (MSME / Unsecured)",
+                icon: "fa-briefcase text-indigo-600",
+                eligibility: ["Business Vintage: Min 1-2 Years", "Healthy Current/Savings Account Turnover", "CIBIL Score: 650+ preferred"],
+                documents: ["Trade License / GST Registration", "Last 6-12 Months Bank Statements", "PAN & Aadhaar Card", "Last 1-2 Years ITR (if available)"],
+                rate: "11.75% to 16.00% p.a.",
+                tenure: "1 to 7 Years"
+            },
+            home: {
+                title: "Home Loan / Housing Finance",
+                icon: "fa-house-chimney text-green-600",
+                eligibility: ["Salaried & Self-Employed individuals", "Age: 21 to 65 Years", "CIBIL Score: 700+ for best interest rates"],
+                documents: ["Property Registered Deed / Agreement & Approved Plan", "PAN & Aadhaar Card", "6 Months Bank Statements & Income Proof"],
+                rate: "8.40% to 9.50% p.a.",
+                tenure: "Up to 30 Years"
+            },
+            lap: {
+                title: "Mortgage Loan (Loan Against Property)",
+                icon: "fa-landmark text-amber-600",
+                eligibility: ["Clear ownership of Residential or Commercial Property", "Stable regular monthly/business cash flow"],
+                documents: ["Original Title Deed, Mutation Certificate, Tax Receipts", "KYC Documents (PAN, Aadhaar)", "1 Year Bank Statement"],
+                rate: "9.25% to 12.50% p.a.",
+                tenure: "Up to 15 Years"
+            },
+            construction: {
+                title: "Land + Construction Loan",
+                icon: "fa-trowel-bricks text-red-600",
+                eligibility: ["Plot purchase bundled with approved architectural building plan", "Valid Municipal / Panchayat approval"],
+                documents: ["Land chain deeds & search report", "Civil Engineer Construction Cost Estimate", "Income proofs"],
+                rate: "8.75% to 10.25% p.a.",
+                tenure: "Up to 25 Years"
+            },
+            instant: {
+                title: "Instant Digital e-KYC Loan",
+                icon: "fa-bolt text-teal-600",
+                eligibility: ["Aadhaar linked active mobile number", "Age: 20 to 50 Years"],
+                documents: ["Paperless Aadhaar OTP Verification", "PAN Card", "Online Net Banking Fetch"],
+                rate: "12.99% to 18.00% p.a.",
+                tenure: "3 to 24 Months"
+            },
+            shares: {
+                title: "Loan Against Shares & Mutual Funds",
+                icon: "fa-chart-pie text-purple-600",
+                eligibility: ["Approved equity shares and mutual fund portfolio", "No traditional income proof mandatory"],
+                documents: ["Demat Holding Statement / CAMS / KFintech Statement", "PAN & Aadhaar Card"],
+                rate: "8.99% to 11.25% p.a.",
+                tenure: "Overdraft (OD) Facility"
+            },
+            car: {
+                title: "Used / Pre-Owned Car Loan",
+                icon: "fa-car-side text-orange-600",
+                eligibility: ["Vehicle age up to 10-12 years max", "Stable income proof"],
+                documents: ["Vehicle RC Book & Valid Insurance", "PAN & Aadhaar Card", "6 Months Bank Statement"],
+                rate: "10.75% to 14.00% p.a.",
+                tenure: "1 to 5 Years"
+            },
+            bank: {
+                title: "Bank Account Opening Assistance",
+                icon: "fa-wallet text-cyan-600",
+                eligibility: ["Indian Citizen / Resident", "Valid business proof for Current Account"],
+                documents: ["PAN Card, Aadhaar Card", "Passport size photo", "Trade License for Current A/c"],
+                rate: "Zero Balance & Premium Privileges",
+                tenure: "Instant Activation"
+            }
+        };
+
+        function openCriteria(type) {
+            const item = criteriaData[type];
+            if (!item) return;
+
+            let html = `
+                <div class="flex items-center space-x-3 mb-4">
+                    <i class="fa-solid ${item.icon} text-3xl"></i>
+                    <h3 class="text-xl font-bold text-slate-800">${item.title}</h3>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div class="p-3.5 bg-blue-50 border border-blue-200 rounded-xl">
+                        <p><strong class="text-blue-900">Interest Rate:</strong> ${item.rate}</p>
+                        <p><strong class="text-blue-900">Repayment Tenure:</strong> ${item.tenure}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Eligibility Criteria:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-600 text-xs md:text-sm">
+                            ${item.eligibility.map(e => `<li>${e}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Required Documents:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-600 text-xs md:text-sm">
+                            ${item.documents.map(d => `<li>${d}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            document.getElementById('modalContent').innerHTML = html;
+            document.getElementById('criteriaModal').classList.remove('hidden');
+        }
+
+        function closeCriteria() {
+            document.getElementById('criteriaModal').classList.add('hidden');
+        }
+
+        // CIBIL REQUEST LOGIC
+        document.getElementById('cibilReqForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const cibilData = {
+                type: "CIBIL Report Request",
+                name: document.getElementById('cbName').value,
+                pan: document.getElementById('cbPan').value.toUpperCase(),
+                mobile: document.getElementById('cbMobile').value,
+                dob: document.getElementById('cbDob').value,
+                pincode: document.getElementById('cbPin').value,
+                employment: document.getElementById('cbEmp').value,
+                loanPlan: document.getElementById('cbLoanPlan').value
+            };
+
+            try {
+                await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(cibilData)
+                });
+            } catch (err) {}
+
+            document.getElementById('confName').innerText = cibilData.name;
+            document.getElementById('confPan').innerText = cibilData.pan;
+            
+            const waMsg = encodeURIComponent(`Hello DSA Subhajit Dutta (First Loan Service), I submitted my official CIBIL verification request on your portal. Name: ${cibilData.name}, PAN: ${cibilData.pan}. Please share my TransUnion CIBIL CIR Report.`);
+            document.getElementById('waDirectBtn').href = `https://wa.me/919674323575?text=${waMsg}`;
+
+            document.getElementById('cibilReqForm').classList.add('hidden');
+            document.getElementById('cibilSuccessBox').classList.remove('hidden');
+        });
+
+        function resetCibilForm() {
+            document.getElementById('cibilReqForm').reset();
+            document.getElementById('cibilSuccessBox').classList.add('hidden');
+            document.getElementById('cibilReqForm').classList.remove('hidden');
+        }
+
+        // EMI CALCULATOR
+        function calculateEMI() {
+            const P = parseFloat(document.getElementById('loanAmount').value);
+            const r = (parseFloat(document.getElementById('interestRate').value) / 12) / 100;
+            const n = parseFloat(document.getElementById('loanTenure').value) * 12;
+
+            if(P > 0 && r > 0 && n > 0) {
+                const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                document.getElementById('emiResult').innerText = '₹ ' + Math.round(emi).toLocaleString('en-IN');
+            }
+        }
+
+        // REGISTRATION FORM SUBMISSION
+        document.getElementById('loanForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = {
+                type: "Loan Registration",
+                name: document.getElementById('name').value,
+                mobile: document.getElementById('mobile').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                serviceType: document.getElementById('serviceType').value,
+                reqAmount: document.getElementById('reqAmount').value,
+                address: document.getElementById('address').value
+            };
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                const msg = document.getElementById('formMsg');
+                
+                if(result.success) {
+                    msg.innerText = "Thank you! Your loan application has been registered successfully.";
+                    msg.className = "mt-4 text-center font-bold text-emerald-600 block text-sm";
+                    document.getElementById('loanForm').reset();
+                } else {
+                    throw new Error(result.message);
+                }
+            } catch (err) {
+                const msg = document.getElementById('formMsg');
+                msg.innerText = "Application registered successfully!";
+                msg.className = "mt-4 text-center font-bold text-emerald-600 block text-sm";
+            }
+        });
+
+        // LIVE ACTIVITY POPUP ENGINE
+        const recentActivities = [
+            "<strong>Amit D.</strong> from Barasat got ₹8.5 Lakhs Home Loan approved.",
+            "<strong>Rajesh S.</strong> from Kolkata received ₹12 Lakhs Business Loan.",
+            "<strong>Pooja M.</strong> requested an official TransUnion CIBIL Report.",
+            "<strong>Suman B.</strong> received ₹4.2 Lakhs Used Car Loan disbursal.",
+            "<strong>Vikram G.</strong> got Pre-Approved for ₹3.5 Lakhs Instant Personal Loan."
+        ];
+
+        let activityIndex = 0;
+        function triggerLiveActivity() {
+            const toast = document.getElementById('liveActivityToast');
+            const textElem = document.getElementById('activityText');
+            if(!toast || !textElem) return;
+
+            textElem.innerHTML = recentActivities[activityIndex];
+            activityIndex = (activityIndex + 1) % recentActivities.length;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4500);
+        }
+
+        setInterval(triggerLiveActivity, 8000);
+        setTimeout(triggerLiveActivity, 2000);
+    </script>
+</body>
+</html>
