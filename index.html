@@ -14,13 +14,80 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
 
+    <!-- 1. FIRST TIME VISITOR TRAFFIC SOURCE POPUP MODAL -->
+    <div id="surveyModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-w-md w-full text-white shadow-2xl relative text-center transform transition-all duration-300 scale-95 opacity-0" id="surveyBox">
+            
+            <button onclick="closeSurveyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-blue-500/30 mb-4">
+                <i class="fa-solid fa-hand-wave text-amber-300"></i>
+            </div>
+            <h3 class="text-xl font-black text-white">Welcome to First Loan Service!</h3>
+            <p class="text-xs text-slate-300 mt-1">আমাদের সাইটটি সম্পর্কে আপনি কোথা থেকে জানতে পারলেন?</p>
+
+            <div class="grid grid-cols-2 gap-3 mt-6 text-xs font-bold">
+                <button onclick="selectSource('Facebook / Social Media')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-blue-600 rounded-2xl border border-slate-700 transition group">
+                    <i class="fa-brands fa-facebook text-indigo-400 group-hover:text-white text-2xl mb-1.5"></i>
+                    <span>Facebook</span>
+                </button>
+
+                <button onclick="selectSource('Google Search')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-emerald-600 rounded-2xl border border-slate-700 transition group">
+                    <i class="fa-brands fa-google text-red-400 group-hover:text-white text-2xl mb-1.5"></i>
+                    <span>Google Search</span>
+                </button>
+
+                <button onclick="selectSource('WhatsApp Share / Status')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-emerald-500 rounded-2xl border border-slate-700 transition group">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 group-hover:text-white text-2xl mb-1.5"></i>
+                    <span>WhatsApp</span>
+                </button>
+
+                <button onclick="selectSource('Friend / Relative Referral')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-amber-600 rounded-2xl border border-slate-700 transition group">
+                    <i class="fa-solid fa-user-group text-amber-400 group-hover:text-white text-2xl mb-1.5"></i>
+                    <span>বন্ধু / পরিচিত কেউ</span>
+                </button>
+            </div>
+
+            <p class="text-[10px] text-slate-400 mt-5">ধন্যবাদ! আপনার উত্তর আমাদের আরও ভালো পরিষেবা দিতে সাহায্য করবে।</p>
+        </div>
+    </div>
+
+    <!-- 2. DEDICATED LOAN MODAL APPLICATION FORM -->
+    <div id="loanModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 hidden overflow-y-auto">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full text-slate-900 shadow-2xl relative border border-slate-200 my-8">
+            <button onclick="closeLoanModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="flex items-center space-x-3 mb-6">
+                <div id="modalIcon" class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div>
+                    <h3 id="modalTitle" class="text-xl font-black text-slate-950">Business Loan Application</h3>
+                    <p class="text-xs text-slate-500">Provide details for fast processing & sanction</p>
+                </div>
+            </div>
+
+            <form id="dynamicLoanForm" class="space-y-4">
+                <div id="modalFormContent"></div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 text-sm uppercase tracking-wider transition mt-4">
+                    Submit Application
+                </button>
+            </form>
+            <p id="modalSuccessMsg" class="text-xs font-bold text-center mt-3 text-emerald-600 hidden">✓ Application submitted successfully! We will contact you shortly.</p>
+        </div>
+    </div>
+
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-900 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
         <span><i class="fa-solid fa-certificate mr-1.5 text-amber-300"></i> Authorized Multi-Banking Direct Selling Partner | Fast Approval & Lowest ROI</span>
     </div>
 
     <!-- NAVBAR -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-3">
@@ -74,8 +141,8 @@
                         <a href="#cibil-upgrade" class="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl text-sm transition">
                             <i class="fa-solid fa-bolt mr-1.5"></i> Boost CIBIL (0 to 750+)
                         </a>
-                        <a href="#apply" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl shadow-blue-600/30 text-sm transition">
-                            Apply for Loan
+                        <a href="#services" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl shadow-blue-600/30 text-sm transition">
+                            View All Loan Plans
                         </a>
                     </div>
                 </div>
@@ -118,16 +185,12 @@
         </div>
     </header>
 
-    <!-- ⭐ SPECIAL HIGHLIGHTED SECTION: UPGRADE YOUR CIBIL ⭐ -->
+    <!-- SPECIAL CIBIL UPGRADE SECTION -->
     <section id="cibil-upgrade" class="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-indigo-950 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
-        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-indigo-500/10 border-2 border-amber-400/40 rounded-3xl p-8 sm:p-14 shadow-2xl backdrop-blur-xl">
-                
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     
-                    <!-- Left Side Content -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center space-x-2 bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider">
                             <i class="fa-solid fa-crown text-amber-400"></i> Special Fast-Track Service
@@ -144,28 +207,8 @@
                         <p class="text-slate-300 text-sm leading-relaxed">
                             লো-স্কোর বা ডিফল্ট হিস্ট্রির কারণে লোন রিজেক্ট হচ্ছে? আমাদের স্পেশাল লিগ্যাল ও ব্যাংকিং এক্সপার্ট গাইডেন্সে খুব কম খরচে আপনার ক্রেডিট স্কোর মেরামত করুন এবং দ্রুত নতুন লোনের যোগ্য হয়ে উঠুন।
                         </p>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs font-bold text-slate-200">
-                            <div class="flex items-center space-x-2.5">
-                                <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
-                                <span>Remove Negative Dues & Disputes</span>
-                            </div>
-                            <div class="flex items-center space-x-2.5">
-                                <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
-                                <span>Clear Overdue / Settled Tags</span>
-                            </div>
-                            <div class="flex items-center space-x-2.5">
-                                <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
-                                <span>Fast Credit Mix Re-building</span>
-                            </div>
-                            <div class="flex items-center space-x-2.5">
-                                <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
-                                <span>100% Legal & Safe Process</span>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Right Side Upgrade Action Form -->
                     <div class="lg:col-span-5">
                         <div class="bg-slate-900/90 border-2 border-amber-400/30 rounded-3xl p-6 sm:p-8 shadow-2xl">
                             <div class="text-center mb-6">
@@ -204,71 +247,74 @@
         </div>
     </section>
 
-    <!-- BANKING PARTNERS LOGO STRIP -->
-    <section class="py-8 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-xs uppercase font-bold text-slate-400 tracking-widest mb-6">Our Lending Partners & Associated Financial Institutions</p>
-            <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 opacity-70 font-extrabold text-slate-700 text-sm sm:text-base">
-                <span class="flex items-center"><i class="fa-solid fa-building-columns mr-2 text-blue-600"></i> HDFC BANK</span>
-                <span class="flex items-center"><i class="fa-solid fa-building-columns mr-2 text-blue-800"></i> SBI</span>
-                <span class="flex items-center"><i class="fa-solid fa-building-columns mr-2 text-orange-600"></i> ICICI BANK</span>
-                <span class="flex items-center"><i class="fa-solid fa-building-columns mr-2 text-red-700"></i> AXIS BANK</span>
-                <span class="flex items-center"><i class="fa-solid fa-bolt mr-2 text-blue-500"></i> BAJAJ FINSERV</span>
-                <span class="flex items-center"><i class="fa-solid fa-shield mr-2 text-blue-900"></i> TATA CAPITAL</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- LOAN SERVICES SECTION -->
+    <!-- LOAN SERVICES SECTION WITH DEDICATED APPLY BUTTONS -->
     <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-xs font-extrabold text-blue-600 uppercase tracking-widest">Tailored Financial Products</span>
             <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Loans Designed for Every Need</h2>
-            <p class="text-slate-500 text-sm mt-3">From personal emergencies to business expansion, get customized credit solutions with flexible tenure.</p>
+            <p class="text-slate-500 text-sm mt-3">প্রতিটি লোনের জন্য রয়েছে আলাদা আবেদন সুবিধা—সঠিক তথ্য দিয়ে দ্রুত অ্যাপ্রুভাল নিশ্চিত করুন।</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition duration-300 group">
-                <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-                    <i class="fa-solid fa-user-tie"></i>
+            
+            <!-- 1. PERSONAL LOAN CARD -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Personal Loan</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">জরুরি আর্থিক প্রয়োজনে বা ব্যক্তিগত কাজে সহজ শর্তে দ্রুত ফান্ডিং সুবিধা।</p>
+                    <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+                        <div class="flex justify-between"><span>Interest:</span><span class="text-blue-600 font-bold">Starting @ 10.49%</span></div>
+                        <div class="flex justify-between"><span>Tenure:</span><span>Up to 5 Years</span></div>
+                        <div class="flex justify-between"><span>Disbursal:</span><span class="text-emerald-600 font-bold">Within 24 Hours</span></div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Personal Loan</h3>
-                <p class="text-slate-500 text-xs leading-relaxed mb-6">Collateral-free instant cash for medical, wedding, travel, or debt consolidation.</p>
-                <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
-                    <div class="flex justify-between"><span>Interest:</span><span class="text-blue-600">Starting @ 10.49%</span></div>
-                    <div class="flex justify-between"><span>Tenure:</span><span>Up to 5 Years</span></div>
-                    <div class="flex justify-between"><span>Disbursal:</span><span class="text-emerald-600">Within 24 Hours</span></div>
-                </div>
-                <a href="#apply" class="mt-6 block text-center bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-800 text-xs font-bold py-3 rounded-xl transition">Apply for Personal Loan</a>
+                <button onclick="openLoanModal('personal')" class="mt-8 block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/20 transition">
+                    <i class="fa-solid fa-paper-plane mr-1.5"></i> Apply for Personal Loan
+                </button>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-300 transition duration-300 group">
-                <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                    <i class="fa-solid fa-briefcase"></i>
+            <!-- 2. BUSINESS LOAN CARD -->
+            <div class="bg-white rounded-3xl p-8 border-2 border-indigo-200 shadow-md hover:shadow-2xl hover:border-indigo-400 transition duration-300 group flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl tracking-wider">Fast Track</div>
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Business & MSME Loan</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">ব্যবসা বাড়ানো বা নতুন স্টক তোলার জন্য জামানতহীন বিজনেস লোন।</p>
+                    <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+                        <div class="flex justify-between"><span>Limit:</span><span class="text-indigo-600 font-bold">Up to ₹1 Crore</span></div>
+                        <div class="flex justify-between"><span>Collateral:</span><span>No Collateral Needed</span></div>
+                        <div class="flex justify-between"><span>Eligibility:</span><span class="text-emerald-600 font-bold">Min 1 Yr Business</span></div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Business Loan</h3>
-                <p class="text-slate-500 text-xs leading-relaxed mb-6">Working capital and expansion funds for MSMEs, traders, and self-employed professionals.</p>
-                <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
-                    <div class="flex justify-between"><span>Limit:</span><span class="text-indigo-600">Up to ₹1 Crore</span></div>
-                    <div class="flex justify-between"><span>Collateral:</span><span>No Collateral Required</span></div>
-                    <div class="flex justify-between"><span>Eligibility:</span><span class="text-emerald-600">Min 1 Yr Business</span></div>
-                </div>
-                <a href="#apply" class="mt-6 block text-center bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 text-xs font-bold py-3 rounded-xl transition">Apply for Business Loan</a>
+                <button onclick="openLoanModal('business')" class="mt-8 block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-3.5 rounded-xl shadow-lg shadow-indigo-600/30 transition">
+                    <i class="fa-solid fa-paper-plane mr-1.5"></i> Apply for Business Loan
+                </button>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-300 transition duration-300 group">
-                <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
-                    <i class="fa-solid fa-house"></i>
+            <!-- 3. HOME LOAN & LAP CARD -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-300 transition duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Home Loan & LAP</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">নতুন বাড়ি, ফ্ল্যাট কেনা অথবা বাস্তু জমির ওপর বড় অঙ্কের মর্টগেজ লোন।</p>
+                    <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+                        <div class="flex justify-between"><span>Interest:</span><span class="text-emerald-600 font-bold">Starting @ 8.40%</span></div>
+                        <div class="flex justify-between"><span>Tenure:</span><span>Up to 30 Years</span></div>
+                        <div class="flex justify-between"><span>Assistance:</span><span class="text-emerald-600 font-bold">Legal Verification</span></div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Home & Mortgage Loan</h3>
-                <p class="text-slate-500 text-xs leading-relaxed mb-6">New home purchase, construction loan, or Loan Against Property (LAP) at lowest rates.</p>
-                <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
-                    <div class="flex justify-between"><span>Interest:</span><span class="text-emerald-600">Starting @ 8.40%</span></div>
-                    <div class="flex justify-between"><span>Tenure:</span><span>Up to 30 Years</span></div>
-                    <div class="flex justify-between"><span>Assistance:</span><span class="text-emerald-600">Legal & Technical Check</span></div>
-                </div>
-                <a href="#apply" class="mt-6 block text-center bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 text-xs font-bold py-3 rounded-xl transition">Apply for Home Loan</a>
+                <button onclick="openLoanModal('home_lap')" class="mt-8 block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
+                    <i class="fa-solid fa-paper-plane mr-1.5"></i> Apply for Home / LAP Loan
+                </button>
             </div>
+
         </div>
     </section>
 
@@ -324,68 +370,12 @@
                                 <span class="text-white font-bold text-sm font-mono" id="totalPayableDisplay">₹ 5,93,568</span>
                             </div>
                         </div>
-                        <a href="#apply" class="w-full block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-xs uppercase tracking-wider">
-                            Apply with this EMI
+                        <a href="#services" class="w-full block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-xs uppercase tracking-wider">
+                            Choose Your Loan Type
                         </a>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- LOAN REGISTRATION APPLICATION FORM -->
-    <section id="apply" class="py-20 bg-slate-100">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200">
-                <div class="text-center max-w-xl mx-auto mb-10">
-                    <span class="text-xs font-extrabold text-blue-600 uppercase tracking-widest">Start Your Application</span>
-                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Submit Loan Request</h2>
-                    <p class="text-slate-500 text-xs mt-2">Fill in basic details and our senior loan executive will contact you shortly.</p>
-                </div>
-
-                <form id="loanApplyForm" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="text-xs font-bold text-slate-700">Your Full Name</label>
-                            <input type="text" id="loan_name" required placeholder="Enter full name" class="w-full mt-1.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-slate-700">WhatsApp Mobile Number</label>
-                            <input type="tel" id="loan_mobile" required placeholder="10-digit mobile number" class="w-full mt-1.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        <div>
-                            <label class="text-xs font-bold text-slate-700">Loan Type Required</label>
-                            <select id="loan_type" class="w-full mt-1.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
-                                <option value="Personal Loan">Personal Loan</option>
-                                <option value="Business Loan">Business Loan</option>
-                                <option value="Home Loan">Home Loan</option>
-                                <option value="Loan Against Property">Loan Against Property (LAP)</option>
-                                <option value="Balance Transfer">Loan Balance Transfer</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-slate-700">Required Amount (₹)</label>
-                            <input type="number" id="loan_amount" required placeholder="e.g. 500000" class="w-full mt-1.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-slate-700">Employment Type</label>
-                            <select id="loan_emp" class="w-full mt-1.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
-                                <option value="Salaried">Salaried Employee</option>
-                                <option value="Self Employed / Business">Self Employed / Business</option>
-                                <option value="Professional (Doctor/CA)">Professional</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-xl shadow-blue-600/30 text-sm uppercase tracking-wider transition">
-                        Submit & Request Callback
-                    </button>
-                </form>
-                <p id="loanSuccessMsg" class="text-xs font-bold text-center mt-4 text-emerald-600 hidden">✓ Application received! Our DSA manager will contact you within 2 hours.</p>
             </div>
         </div>
     </section>
@@ -395,26 +385,268 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div>
                 <span class="text-white font-bold text-base block">First Loan Service</span>
-                <p class="text-slate-500 mt-1">Multi-Banking Direct Selling Agency | All Rights Reserved.</p>
+                <p class="text-slate-500 mt-1">Multi-Banking Direct Selling Agency | Subhajit Dutta (+91 96743 23575)</p>
             </div>
             <div class="flex space-x-6 font-bold">
                 <a href="#services" class="hover:text-white">Services</a>
                 <a href="#cibil-upgrade" class="text-amber-400 hover:underline">Upgrade CIBIL</a>
-                <a href="#calculator" class="hover:text-white">Calculator</a>
+                <a href="card.html" class="text-blue-400 hover:underline">Digital Visiting Card</a>
             </div>
         </div>
     </footer>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/919674323575?text=Hello%20First%20Loan%20Service,%20I%20want%20to%20upgrade%20my%20CIBIL%20Score." 
+    <a href="https://wa.me/919674323575?text=Hello%20First%20Loan%20Service,%20I%20need%20assistance%20regarding%20Loan." 
        target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-emerald-500/50 transition transform hover:scale-110">
+       class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-emerald-500/50 transition transform hover:scale-110">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- SCRIPTS -->
     <script>
-        // 1. EMI Calculator Logic
+        // TELEGRAM NOTIFICATION CONFIG (With your Active Token & Chat ID)
+        const TELEGRAM_BOT_TOKEN = "8794394061:AAG5yDYYYHNhqlOWpJlhTPg-VwdNGscwiWo";
+        const TELEGRAM_CHAT_ID = "8876967054";
+
+        function notifyTelegram(msg) {
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`;
+            fetch(url).catch(err => console.log('Telegram error:', err));
+        }
+
+        // 1. FIRST TIME VISITOR TRAFFIC SURVEY
+        window.addEventListener('DOMContentLoaded', () => {
+            const hasSeenSurvey = localStorage.getItem('hasSeenSourceSurvey');
+            if (!hasSeenSurvey) {
+                setTimeout(() => {
+                    const modal = document.getElementById('surveyModal');
+                    const box = document.getElementById('surveyBox');
+                    modal.classList.remove('hidden');
+                    setTimeout(() => {
+                        box.classList.remove('scale-95', 'opacity-0');
+                        box.classList.add('scale-100', 'opacity-100');
+                    }, 50);
+                }, 1200);
+            }
+        });
+
+        function closeSurveyModal() {
+            localStorage.setItem('hasSeenSourceSurvey', 'true');
+            document.getElementById('surveyModal').classList.add('hidden');
+        }
+
+        function selectSource(sourceName) {
+            closeSurveyModal();
+            const alertText = `📊 *NEW VISITOR SOURCE DETECTED!* 📊\n\n🌐 *Traffic Source:* ${sourceName}\n⏰ *Time:* ${new Date().toLocaleString("en-IN")}`;
+            notifyTelegram(alertText);
+        }
+
+        // 2. DYNAMIC LOAN MODAL APPLICATION HANDLER
+        let currentLoanType = "";
+
+        function openLoanModal(type) {
+            currentLoanType = type;
+            const modal = document.getElementById('loanModal');
+            const container = document.getElementById('modalFormContent');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalIcon = document.getElementById('modalIcon');
+            document.getElementById('modalSuccessMsg').classList.add('hidden');
+            
+            if (type === 'business') {
+                modalTitle.innerText = "Business & MSME Loan Application";
+                modalIcon.className = "w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl font-bold";
+                modalIcon.innerHTML = '<i class="fa-solid fa-briefcase"></i>';
+                container.innerHTML = `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">First Name</label>
+                            <input type="text" id="b_fname" required placeholder="First Name" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">Surname / Last Name</label>
+                            <input type="text" id="b_lname" required placeholder="Last Name" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[11px] font-bold uppercase text-slate-600">WhatsApp Mobile Number</label>
+                        <input type="tel" id="b_mobile" required placeholder="10-digit mobile number" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">কী ধরনের বিজনেস (Business Type)</label>
+                            <input type="text" id="b_type" required placeholder="e.g. Grocery, Cloth, Shop" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">ব্যবসা কত দিন ধরে চলছে (Vintage)</label>
+                            <select id="b_vintage" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                                <option value="Less than 1 Year">১ বছরের কম</option>
+                                <option value="1 to 3 Years">১ থেকে ৩ বছর</option>
+                                <option value="3 to 5 Years">৩ থেকে ৫ বছর</option>
+                                <option value="5+ Years">৫ বছরের বেশি</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">Udyam / ট্রেড লাইসেন্স আছে?</label>
+                            <select id="b_udyam" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                                <option value="Yes (Udyam & Trade Available)">হ্যাঁ (Available)</option>
+                                <option value="Only Trade License Available">শুধু ট্রেড লাইসেন্স আছে</option>
+                                <option value="No Registration / None">নেই (None)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">ITR ফাইল করেন কি না?</label>
+                            <select id="b_itr" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                                <option value="Yes (ITR 2-3 Years Available)">হ্যাঁ (Regular ITR)</option>
+                                <option value="Yes (Last 1 Year Available)">শুধু গত ১ বছরের আছে</option>
+                                <option value="No ITR">না, ITR নেই</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[11px] font-bold uppercase text-slate-600">কত টাকা লোন প্রয়োজন (₹)</label>
+                        <input type="number" id="b_amount" required placeholder="e.g. 500000" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-600">
+                    </div>
+                `;
+            } else if (type === 'home_lap') {
+                modalTitle.innerText = "Home Loan & LAP Application";
+                modalIcon.className = "w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl font-bold";
+                modalIcon.innerHTML = '<i class="fa-solid fa-house"></i>';
+                container.innerHTML = `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">Full Name</label>
+                            <input type="text" id="h_name" required placeholder="আপনার পুরো নাম" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">WhatsApp Mobile Number</label>
+                            <input type="tel" id="h_mobile" required placeholder="10-digit mobile number" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-600">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">জমির ধরন (Land / Property Type)</label>
+                            <select id="h_land_type" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-600">
+                                <option value="Bastu Land (বাস্তু জমি)">বাস্তু জমি (Bastu)</option>
+                                <option value="Ready House / Building (বাড়ি সহ জমি)">তৈরি বাড়ি (House on Land)</option>
+                                <option value="Flat / Apartment (ফ্ল্যাট)">ফ্ল্যাট (Flat)</option>
+                                <option value="Sali Land (শালী জমি)">শালী জমি (Sali)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">দলিল, পরচা ও মিউটেশন ক্লিয়ার?</label>
+                            <select id="h_docs" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-600">
+                                <option value="Yes (All Deeds, Porcha & Mutation Clear)">হ্যাঁ, সব ক্লিয়ার ও আপডেট আছে</option>
+                                <option value="Deed Available, Mutation Pending">দলিল আছে, মিউটেশন চলছে</option>
+                                <option value="Need Assistance with Paperwork">কাগজপত্র চেক করাতে চাই</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">প্রপার্টির আনুমানিক বাজারমূল্য (₹)</label>
+                            <input type="number" id="h_prop_val" required placeholder="e.g. 2500000" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">কত টাকা লোন লাগবে (₹)</label>
+                            <input type="number" id="h_amount" required placeholder="e.g. 1500000" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-600">
+                        </div>
+                    </div>
+                `;
+            } else {
+                modalTitle.innerText = "Personal Loan Application";
+                modalIcon.className = "w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl font-bold";
+                modalIcon.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
+                container.innerHTML = `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">Full Name</label>
+                            <input type="text" id="p_name" required placeholder="আপনার পুরো নাম" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">WhatsApp Mobile Number</label>
+                            <input type="tel" id="p_mobile" required placeholder="10-digit mobile number" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">কাজের ধরন (Occupation)</label>
+                            <select id="p_occ" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="Salaried (Private / Govt)">চাকরিজীবী (Salaried)</option>
+                                <option value="Self Employed / Daily Income">স্বনির্ভর (Self Employed)</option>
+                                <option value="Professional (Driver / Logistics / Delivery)">রাইডার / ডেলিভারি / ড্রাইভার</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">মাসিক আয় / বেতন (₹)</label>
+                            <input type="number" id="p_income" required placeholder="e.g. 25000" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">PAN Card Number</label>
+                            <input type="text" id="p_pan" required placeholder="ABCDE1234F" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold uppercase outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase text-slate-600">কত টাকা লোন প্রয়োজন (₹)</label>
+                            <input type="number" id="p_amount" required placeholder="e.g. 100000" class="w-full mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                    </div>
+                `;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeLoanModal() {
+            document.getElementById('loanModal').classList.add('hidden');
+        }
+
+        // DYNAMIC LOAN FORM SUBMISSION
+        document.getElementById('dynamicLoanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let alertText = "";
+
+            if (currentLoanType === 'business') {
+                const fname = document.getElementById('b_fname').value;
+                const lname = document.getElementById('b_lname').value;
+                const mobile = document.getElementById('b_mobile').value;
+                const btype = document.getElementById('b_type').value;
+                const vintage = document.getElementById('b_vintage').value;
+                const udyam = document.getElementById('b_udyam').value;
+                const itr = document.getElementById('b_itr').value;
+                const amount = document.getElementById('b_amount').value;
+
+                alertText = `💼 *NEW BUSINESS LOAN APPLICATION!* 💼\n\n👤 *Applicant:* ${fname} ${lname}\n📞 *Mobile:* ${mobile}\n🏢 *Business Nature:* ${btype}\n⏳ *Vintage (বয়স):* ${vintage}\n📜 *Udyam/Trade:* ${udyam}\n📁 *ITR Status:* ${itr}\n💰 *Required Loan:* ₹${Number(amount).toLocaleString('en-IN')}\n⏰ *Time:* ${new Date().toLocaleString("en-IN")}`;
+            } 
+            else if (currentLoanType === 'home_lap') {
+                const name = document.getElementById('h_name').value;
+                const mobile = document.getElementById('h_mobile').value;
+                const landType = document.getElementById('h_land_type').value;
+                const docs = document.getElementById('h_docs').value;
+                const propVal = document.getElementById('h_prop_val').value;
+                const amount = document.getElementById('h_amount').value;
+
+                alertText = `🏠 *NEW HOME LOAN / LAP APPLICATION!* 🏠\n\n👤 *Applicant:* ${name}\n📞 *Mobile:* ${mobile}\n🏞️ *Land/Property:* ${landType}\n📑 *Legal Paper Status:* ${docs}\n🏷️ *Property Value:* ₹${Number(propVal).toLocaleString('en-IN')}\n💰 *Loan Demanded:* ₹${Number(amount).toLocaleString('en-IN')}\n⏰ *Time:* ${new Date().toLocaleString("en-IN")}`;
+            } 
+            else {
+                const name = document.getElementById('p_name').value;
+                const mobile = document.getElementById('p_mobile').value;
+                const occ = document.getElementById('p_occ').value;
+                const income = document.getElementById('p_income').value;
+                const pan = document.getElementById('p_pan').value;
+                const amount = document.getElementById('p_amount').value;
+
+                alertText = `👤 *NEW PERSONAL LOAN APPLICATION!* 👤\n\n👤 *Applicant:* ${name}\n📞 *Mobile:* ${mobile}\n💳 *PAN Card:* ${pan}\n💼 *Profile:* ${occ}\n💵 *Monthly Income:* ₹${Number(income).toLocaleString('en-IN')}\n💰 *Loan Amount:* ₹${Number(amount).toLocaleString('en-IN')}\n⏰ *Time:* ${new Date().toLocaleString("en-IN")}`;
+            }
+
+            notifyTelegram(alertText);
+            document.getElementById('modalSuccessMsg').classList.remove('hidden');
+            setTimeout(() => {
+                closeLoanModal();
+            }, 2500);
+        });
+
+        // 3. EMI CALCULATOR LOGIC
         const amountSlider = document.getElementById('loanAmount');
         const rateSlider = document.getElementById('interestRate');
         const tenureSlider = document.getElementById('tenureYears');
@@ -442,16 +674,7 @@
         tenureSlider.addEventListener('input', updateEMI);
         updateEMI();
 
-        // 2. Telegram Instant Notification Function (With your Active Token & Chat ID)
-        function notifyTelegram(msg) {
-            const TELEGRAM_BOT_TOKEN = "8794394061:AAG5yDYYYHNhqlOWpJlhTPg-VwdNGscwiWo";
-            const TELEGRAM_CHAT_ID = "8876967054";
-            
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`;
-            fetch(url).catch(err => console.log('Telegram error:', err));
-        }
-
-        // 3. Free CIBIL Form
+        // 4. FREE CIBIL FORM
         document.getElementById('heroCibilForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('cibil_name').value;
@@ -466,7 +689,7 @@
             document.getElementById('heroCibilForm').reset();
         });
 
-        // 4. SPECIAL: CIBIL UPGRADE FORM
+        // 5. CIBIL UPGRADE FORM
         document.getElementById('cibilUpgradeForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('up_name').value;
@@ -478,22 +701,6 @@
 
             document.getElementById('upSuccessMsg').classList.remove('hidden');
             document.getElementById('cibilUpgradeForm').reset();
-        });
-
-        // 5. Loan Application Form
-        document.getElementById('loanApplyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('loan_name').value;
-            const mobile = document.getElementById('loan_mobile').value;
-            const loanPlan = document.getElementById('loan_type').value;
-            const reqAmount = document.getElementById('loan_amount').value;
-            const employment = document.getElementById('loan_emp').value;
-
-            const alertText = `🚀 *NEW LOAN APPLICATION!* 🚀\n\n👤 *Name:* ${name}\n📞 *Mobile:* ${mobile}\n💼 *Loan Type:* ${loanPlan}\n💰 *Amount:* ₹${Number(reqAmount).toLocaleString('en-IN')}\n🏢 *Profile:* ${employment}\n⏰ *Time:* ${new Date().toLocaleString("en-IN")}`;
-            notifyTelegram(alertText);
-
-            document.getElementById('loanSuccessMsg').classList.remove('hidden');
-            document.getElementById('loanApplyForm').reset();
         });
     </script>
 </body>
