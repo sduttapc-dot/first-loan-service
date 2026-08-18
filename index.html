@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Loan Service | Multi-Banking DSA & Financial Consultancy</title>
+    
+    <!-- Social Preview Meta Tags -->
+    <meta property="og:title" content="First Loan Service | Multi-Banking DSA Partner">
+    <meta property="og:description" content="Instant NBFC Loans, Business, Home, Personal Loans & Low-Cost CIBIL Upgrade by Subhajit Dutta.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop&q=80">
+    <meta property="og:url" content="https://first-loan-service.onrender.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,14 +21,12 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
 
-    <!-- 1. FIRST TIME VISITOR TRAFFIC SOURCE POPUP MODAL -->
+    <!-- 1. FIRST TIME VISITOR TRAFFIC SURVEY MODAL -->
     <div id="surveyModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 hidden">
         <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-w-md w-full text-white shadow-2xl relative text-center transform transition-all duration-300 scale-95 opacity-0" id="surveyBox">
-            
             <button onclick="closeSurveyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg p-2">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-
             <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-blue-500/30 mb-4">
                 <i class="fa-solid fa-hand-wave text-amber-300"></i>
             </div>
@@ -29,28 +34,23 @@
             <p class="text-xs text-slate-300 mt-1">আমাদের সাইটটি সম্পর্কে আপনি কোথা থেকে জানতে পারলেন?</p>
 
             <div class="grid grid-cols-2 gap-3 mt-6 text-xs font-bold">
-                <button onclick="selectSource('Facebook / Social Media')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-blue-600 rounded-2xl border border-slate-700 transition group">
-                    <i class="fa-brands fa-facebook text-indigo-400 group-hover:text-white text-2xl mb-1.5"></i>
+                <button onclick="selectSource('Facebook / Social Media')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-blue-600 rounded-2xl border border-slate-700 transition">
+                    <i class="fa-brands fa-facebook text-indigo-400 text-2xl mb-1.5"></i>
                     <span>Facebook</span>
                 </button>
-
-                <button onclick="selectSource('Google Search')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-emerald-600 rounded-2xl border border-slate-700 transition group">
-                    <i class="fa-brands fa-google text-red-400 group-hover:text-white text-2xl mb-1.5"></i>
+                <button onclick="selectSource('Google Search')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-emerald-600 rounded-2xl border border-slate-700 transition">
+                    <i class="fa-brands fa-google text-red-400 text-2xl mb-1.5"></i>
                     <span>Google Search</span>
                 </button>
-
-                <button onclick="selectSource('WhatsApp Share / Status')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-emerald-500 rounded-2xl border border-slate-700 transition group">
-                    <i class="fa-brands fa-whatsapp text-emerald-400 group-hover:text-white text-2xl mb-1.5"></i>
+                <button onclick="selectSource('WhatsApp Share / Status')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-emerald-500 rounded-2xl border border-slate-700 transition">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-2xl mb-1.5"></i>
                     <span>WhatsApp</span>
                 </button>
-
-                <button onclick="selectSource('Friend / Relative Referral')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-amber-600 rounded-2xl border border-slate-700 transition group">
-                    <i class="fa-solid fa-user-group text-amber-400 group-hover:text-white text-2xl mb-1.5"></i>
+                <button onclick="selectSource('Friend / Relative Referral')" class="flex flex-col items-center justify-center p-3.5 bg-slate-800 hover:bg-amber-600 rounded-2xl border border-slate-700 transition">
+                    <i class="fa-solid fa-user-group text-amber-400 text-2xl mb-1.5"></i>
                     <span>বন্ধু / পরিচিত কেউ</span>
                 </button>
             </div>
-
-            <p class="text-[10px] text-slate-400 mt-5">ধন্যবাদ! আপনার উত্তর আমাদের আরও ভালো পরিষেবা দিতে সাহায্য করবে।</p>
         </div>
     </div>
 
@@ -66,7 +66,7 @@
                     <i class="fa-solid fa-briefcase"></i>
                 </div>
                 <div>
-                    <h3 id="modalTitle" class="text-xl font-black text-slate-950">Business Loan Application</h3>
+                    <h3 id="modalTitle" class="text-xl font-black text-slate-950">Loan Application</h3>
                     <p class="text-xs text-slate-500">Provide details for fast processing & sanction</p>
                 </div>
             </div>
@@ -83,10 +83,10 @@
 
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-900 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
-        <span><i class="fa-solid fa-certificate mr-1.5 text-amber-300"></i> Authorized Multi-Banking Direct Selling Partner | Fast Approval & Lowest ROI</span>
+        <span><i class="fa-solid fa-certificate mr-1.5 text-amber-300"></i> Authorized Multi-Banking Direct Selling Partner | Instant Sanctions</span>
     </div>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR WITH INSTANT LOANS LINK -->
     <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -96,22 +96,25 @@
                     </div>
                     <div>
                         <span class="text-xl font-extrabold tracking-tight text-slate-950 block leading-tight">First Loan <span class="text-blue-600">Service</span></span>
-                        <span class="text-[11px] font-bold text-slate-500 tracking-wider uppercase block">DSA Financial Consultancy</span>
+                        <span class="text-[11px] font-bold text-slate-500 tracking-wider uppercase block">Subhajit Dutta • DSA Partner</span>
                     </div>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-8 text-sm font-bold text-slate-600">
+                <div class="hidden md:flex items-center space-x-6 text-sm font-bold text-slate-600">
+                    <a href="instant-loan.html" class="inline-flex items-center px-3 py-1.5 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-600 hover:text-white transition shadow-sm">
+                        <i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i> Instant Loans (NBFC)
+                    </a>
                     <a href="#services" class="hover:text-blue-600 transition">Services</a>
                     <a href="#cibil-upgrade" class="text-amber-600 hover:text-amber-700 font-extrabold transition"><i class="fa-solid fa-rocket mr-1 text-amber-500"></i> Upgrade CIBIL</a>
                     <a href="#calculator" class="hover:text-blue-600 transition">EMI Calculator</a>
-                    <a href="#cibil-sec" class="text-emerald-600 hover:text-emerald-700 transition"><i class="fa-solid fa-shield-halved mr-1"></i> Free CIBIL Check</a>
+                    <a href="card.html" class="hover:text-blue-600 transition">Digital Card</a>
                 </div>
 
                 <div class="flex items-center space-x-3">
                     <a href="tel:+919674323575" class="hidden sm:inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl transition">
                         <i class="fa-solid fa-phone mr-2 text-blue-600"></i> +91 96743 23575
                     </a>
-                    <a href="#cibil-upgrade" class="inline-flex items-center bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-orange-500/30 transition transform hover:-translate-y-0.5">
+                    <a href="#cibil-upgrade" class="inline-flex items-center bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-orange-500/30 transition transform hover:-translate-y-0.5">
                         Upgrade CIBIL <i class="fa-solid fa-arrow-up-right-dots ml-2 text-xs"></i>
                     </a>
                 </div>
@@ -128,26 +131,26 @@
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <div class="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-bold px-3.5 py-1.5 rounded-full">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>Zero Upfront Advisory Charges • 100% Transparent</span>
+                        <span>Zero Upfront Charges • 100% Transparent Process</span>
                     </div>
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
                         Instant Multi-Banking <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Loan Solutions</span> in One Place.
                     </h1>
                     <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                        Compare and secure the lowest interest rates across 25+ top Banks and NBFCs. Get doorstep assistance from experienced DSA partners.
+                        Compare and secure the lowest interest rates across 25+ top Banks and NBFCs. Fast digital approvals & expert doorstep assistance.
                     </p>
                     
                     <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
-                        <a href="#cibil-upgrade" class="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl text-sm transition">
-                            <i class="fa-solid fa-bolt mr-1.5"></i> Boost CIBIL (0 to 750+)
+                        <a href="instant-loan.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl shadow-indigo-600/30 text-sm transition">
+                            <i class="fa-solid fa-bolt mr-1.5 text-amber-300"></i> Instant NBFC Portal (5 Mins)
                         </a>
-                        <a href="#services" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl shadow-blue-600/30 text-sm transition">
-                            View All Loan Plans
+                        <a href="#cibil-upgrade" class="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl text-sm transition">
+                            <i class="fa-solid fa-rocket mr-1.5"></i> Boost CIBIL (0 to 750+)
                         </a>
                     </div>
                 </div>
 
-                <!-- Instant CIBIL Check Form -->
+                <!-- Instant Free CIBIL Check Form -->
                 <div class="lg:col-span-5" id="cibil-sec">
                     <div class="bg-white rounded-3xl p-6 sm:p-8 text-slate-900 shadow-2xl border border-slate-100 relative">
                         <div class="flex items-center space-x-3 mb-5">
@@ -185,7 +188,25 @@
         </div>
     </header>
 
-    <!-- SPECIAL CIBIL UPGRADE SECTION -->
+    <!-- SPECIAL HIGHLIGHT: INSTANT SELF-SERVICE BANNER -->
+    <section class="py-6 bg-indigo-900 border-y border-indigo-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3 text-center sm:text-left">
+                <div class="w-12 h-12 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center text-2xl font-black">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div>
+                    <h4 class="text-base font-black">Direct Self-Service NBFC Instant Loans</h4>
+                    <p class="text-xs text-indigo-200">Bajaj Finserv, Ram Fincorp, Zap Cash, Digi Code & Ring</p>
+                </div>
+            </div>
+            <a href="instant-loan.html" class="bg-white hover:bg-slate-100 text-indigo-950 font-extrabold text-xs px-6 py-3 rounded-xl shadow-lg uppercase tracking-wider transition whitespace-nowrap">
+                Open Instant Portal <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- CIBIL UPGRADE SECTION -->
     <section id="cibil-upgrade" class="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-indigo-950 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-indigo-500/10 border-2 border-amber-400/40 rounded-3xl p-8 sm:p-14 shadow-2xl backdrop-blur-xl">
@@ -205,7 +226,7 @@
                             <span class="text-slate-300 font-bold text-sm sm:text-base">In Just a Few Days!</span>
                         </div>
                         <p class="text-slate-300 text-sm leading-relaxed">
-                            লো-স্কোর বা ডিফল্ট হিস্ট্রির কারণে লোন রিজেক্ট হচ্ছে? আমাদের স্পেশাল লিগ্যাল ও ব্যাংকিং এক্সপার্ট গাইডেন্সে খুব কম খরচে আপনার ক্রেডিট স্কোর মেরামত করুন এবং দ্রুত নতুন লোনের যোগ্য হয়ে উঠুন।
+                            লো-স্কোর বা ডিফল্ট হিস্ট্রির কারণে লোন রিজেক্ট হচ্ছে? আমাদের স্পেশাল লিগ্যাল ও ব্যাংকিং এক্সপার্ট গাইডেন্সে খুব কম খরচে আপনার ক্রেডিট স্কোর মেরামত করুন।
                         </p>
                     </div>
 
@@ -247,7 +268,7 @@
         </div>
     </section>
 
-    <!-- LOAN SERVICES SECTION WITH DEDICATED APPLY BUTTONS -->
+    <!-- LOAN SERVICES SECTION -->
     <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-xs font-extrabold text-blue-600 uppercase tracking-widest">Tailored Financial Products</span>
@@ -257,7 +278,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <!-- 1. PERSONAL LOAN CARD -->
+            <!-- 1. PERSONAL LOAN -->
             <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition duration-300 group flex flex-col justify-between">
                 <div>
                     <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -276,7 +297,7 @@
                 </button>
             </div>
 
-            <!-- 2. BUSINESS LOAN CARD -->
+            <!-- 2. BUSINESS LOAN -->
             <div class="bg-white rounded-3xl p-8 border-2 border-indigo-200 shadow-md hover:shadow-2xl hover:border-indigo-400 transition duration-300 group flex flex-col justify-between relative overflow-hidden">
                 <div class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl tracking-wider">Fast Track</div>
                 <div>
@@ -296,7 +317,7 @@
                 </button>
             </div>
 
-            <!-- 3. HOME LOAN & LAP CARD -->
+            <!-- 3. HOME LOAN & LAP -->
             <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-300 transition duration-300 group flex flex-col justify-between">
                 <div>
                     <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
@@ -370,8 +391,8 @@
                                 <span class="text-white font-bold text-sm font-mono" id="totalPayableDisplay">₹ 5,93,568</span>
                             </div>
                         </div>
-                        <a href="#services" class="w-full block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-xs uppercase tracking-wider">
-                            Choose Your Loan Type
+                        <a href="instant-loan.html" class="w-full block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-xs uppercase tracking-wider">
+                            Apply Instant NBFC Loan
                         </a>
                     </div>
                 </div>
@@ -387,10 +408,11 @@
                 <span class="text-white font-bold text-base block">First Loan Service</span>
                 <p class="text-slate-500 mt-1">Multi-Banking Direct Selling Agency | Subhajit Dutta (+91 96743 23575)</p>
             </div>
-            <div class="flex space-x-6 font-bold">
+            <div class="flex flex-wrap gap-4 sm:gap-6 font-bold">
+                <a href="instant-loan.html" class="text-amber-400 hover:underline">Instant NBFC Loans</a>
                 <a href="#services" class="hover:text-white">Services</a>
-                <a href="#cibil-upgrade" class="text-amber-400 hover:underline">Upgrade CIBIL</a>
-                <a href="card.html" class="text-blue-400 hover:underline">Digital Visiting Card</a>
+                <a href="#cibil-upgrade" class="text-emerald-400 hover:underline">Upgrade CIBIL</a>
+                <a href="card.html" class="text-blue-400 hover:underline">Digital Card</a>
             </div>
         </div>
     </footer>
@@ -404,7 +426,7 @@
 
     <!-- SCRIPTS -->
     <script>
-        // TELEGRAM NOTIFICATION CONFIG (With your Active Token & Chat ID)
+        // TELEGRAM NOTIFICATION CONFIG
         const TELEGRAM_BOT_TOKEN = "8794394061:AAG5yDYYYHNhqlOWpJlhTPg-VwdNGscwiWo";
         const TELEGRAM_CHAT_ID = "8876967054";
 
