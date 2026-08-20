@@ -3,198 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | First Loan Service</title>
+    <title>First Loan Service - Content & Lead Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-100 font-sans text-slate-800 antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen p-4 sm:p-8">
 
-    <!-- LOGIN SCREEN -->
-    <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4">
-        <div class="bg-white p-8 rounded-2xl shadow-xl max-w-sm w-full border text-center">
-            <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto text-2xl mb-4 shadow">
-                <i class="fa-solid fa-lock"></i>
-            </div>
-            <h2 class="text-2xl font-black text-slate-900">Admin Portal</h2>
-            <p class="text-xs text-slate-500 mt-1 mb-6">DSA Subhajit Dutta | First Loan Service</p>
-            
-            <form id="adminLoginForm" class="space-y-4">
-                <div>
-                    <input type="password" id="adminPass" required placeholder="Enter Secret Password" 
-                           class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 font-bold text-center">
+    <div class="max-w-4xl mx-auto">
+        <!-- HEADER -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900 border border-slate-800 p-6 rounded-3xl mb-8 shadow-xl">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl border border-blue-500/30">
+                    <i class="fa-solid fa-pen-to-square"></i>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow transition">
-                    Access Dashboard
+                <div>
+                    <h1 class="text-xl font-bold text-white">First Loan Service | Editor Panel</h1>
+                    <p class="text-xs text-slate-400">Change website text, phone numbers & rates instantly</p>
+                </div>
+            </div>
+            <a href="index.html" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-blue-400 font-bold px-4 py-2.5 rounded-xl border border-slate-700 transition">
+                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> View Live Site
+            </a>
+        </div>
+
+        <!-- SITE CONTENT EDIT FORM -->
+        <div class="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-xl space-y-6">
+            <h2 class="text-base font-bold text-amber-400 uppercase tracking-wider border-b border-slate-800 pb-3 flex items-center gap-2">
+                <i class="fa-solid fa-sliders"></i> Edit Website Content
+            </h2>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Top Announcement Bar Text</label>
+                <input type="text" id="cfg_announce" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-blue-500">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Contact Phone / WhatsApp Number</label>
+                    <input type="text" id="cfg_phone" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Personal Loan Interest Rate Text</label>
+                    <input type="text" id="cfg_pl_rate" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-blue-500">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Business Loan Max Limit Text</label>
+                    <input type="text" id="cfg_bl_limit" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Home Loan Interest Rate Text</label>
+                    <input type="text" id="cfg_hl_rate" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-blue-500">
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                <button onclick="saveSiteContent()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 text-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> Save & Apply Changes
                 </button>
-            </form>
-            <p id="loginError" class="text-red-500 text-xs font-bold mt-3 hidden">Incorrect Password!</p>
+                <span id="saveSuccessMsg" class="text-xs font-bold text-emerald-400 hidden">✓ Saved successfully!</span>
+            </div>
         </div>
     </div>
 
-    <!-- MAIN DASHBOARD -->
-    <div id="dashboardScreen" class="hidden min-h-screen">
-        <header class="bg-slate-900 text-white px-6 py-4 flex justify-between items-center shadow-md">
-            <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 p-2 rounded-lg text-white">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <div>
-                    <h1 class="text-lg font-black tracking-wide">First Loan Service <span class="text-blue-400 font-normal">| Admin Panel</span></h1>
-                    <p class="text-[10px] text-slate-400">Welcome, DSA Subhajit Dutta</p>
-                </div>
-            </div>
-            <div class="flex items-center space-x-3">
-                <button onclick="exportCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg shadow transition flex items-center">
-                    <i class="fa-solid fa-file-excel mr-1.5 text-sm"></i> Download Excel
-                </button>
-                <button onclick="logout()" class="bg-slate-800 hover:bg-red-600 text-slate-300 hover:text-white text-xs font-bold px-3.5 py-2 rounded-lg transition">
-                    Logout
-                </button>
-            </div>
-        </header>
-
-        <main class="max-w-7xl mx-auto p-4 md:p-6 space-y-6">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="text-xs uppercase font-bold text-slate-500">Total Inquiries</span>
-                    <h3 id="totalCount" class="text-3xl font-black text-blue-600 mt-1">0</h3>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="text-xs uppercase font-bold text-slate-500">CIBIL Report Requests</span>
-                    <h3 id="cibilCount" class="text-3xl font-black text-emerald-600 mt-1">0</h3>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="text-xs uppercase font-bold text-slate-500">Loan Applications</span>
-                    <h3 id="loanCount" class="text-3xl font-black text-amber-600 mt-1">0</h3>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                <div class="p-5 border-b flex justify-between items-center">
-                    <h2 class="text-lg font-black text-slate-800">Customer Leads & Verification Queue</h2>
-                    <button onclick="loadLeads()" class="text-blue-600 text-xs font-bold hover:underline">
-                        <i class="fa-solid fa-arrows-rotate mr-1"></i> Refresh List
-                    </button>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-xs md:text-sm">
-                        <thead class="bg-slate-50 text-slate-600 uppercase font-bold text-[11px] border-b">
-                            <tr>
-                                <th class="p-3.5">Type</th>
-                                <th class="p-3.5">Date & Time</th>
-                                <th class="p-3.5">Customer Name</th>
-                                <th class="p-3.5">Mobile / WhatsApp</th>
-                                <th class="p-3.5">PAN / Req Amount</th>
-                                <th class="p-3.5">Service / Plan</th>
-                                <th class="p-3.5 text-center">Quick Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="leadsTableBody" class="divide-y divide-slate-100"></tbody>
-                    </table>
-                </div>
-            </div>
-        </main>
-    </div>
-
     <script>
-        let currentLeads = [];
-        let savedPass = '';
+        // Load stored content on page open
+        window.addEventListener('DOMContentLoaded', () => {
+            const data = JSON.parse(localStorage.getItem('site_custom_content')) || {
+                announce: "Authorized Multi-Banking Direct Selling Partner | Instant Sanctions",
+                phone: "+91 96743 23575",
+                pl_rate: "Starting @ 10.49%",
+                bl_limit: "Up to ₹1 Crore",
+                hl_rate: "Starting @ 8.40%"
+            };
 
-        document.getElementById('adminLoginForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const pass = document.getElementById('adminPass').value;
-            savedPass = pass;
-            await fetchLeads(pass);
+            document.getElementById('cfg_announce').value = data.announce;
+            document.getElementById('cfg_phone').value = data.phone;
+            document.getElementById('cfg_pl_rate').value = data.pl_rate;
+            document.getElementById('cfg_bl_limit').value = data.bl_limit;
+            document.getElementById('cfg_hl_rate').value = data.hl_rate;
         });
 
-        async function fetchLeads(pass) {
-            try {
-                const res = await fetch('/api/admin/leads', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ password: pass })
-                });
-                const data = await res.json();
-                if (data.success) {
-                    currentLeads = data.leads;
-                    renderDashboard(data.leads);
-                    document.getElementById('loginScreen').classList.add('hidden');
-                    document.getElementById('dashboardScreen').classList.remove('hidden');
-                } else {
-                    document.getElementById('loginError').classList.remove('hidden');
-                }
-            } catch (err) {
-                alert('Connection error!');
-            }
-        }
+        // Save new content
+        function saveSiteContent() {
+            const newData = {
+                announce: document.getElementById('cfg_announce').value,
+                phone: document.getElementById('cfg_phone').value,
+                pl_rate: document.getElementById('cfg_pl_rate').value,
+                bl_limit: document.getElementById('cfg_bl_limit').value,
+                hl_rate: document.getElementById('cfg_hl_rate').value
+            };
 
-        function renderDashboard(leads) {
-            document.getElementById('totalCount').innerText = leads.length;
-            document.getElementById('cibilCount').innerText = leads.filter(l => l.type === "CIBIL Report Request").length;
-            document.getElementById('loanCount').innerText = leads.filter(l => l.type === "Loan Registration").length;
+            localStorage.setItem('site_custom_content', JSON.stringify(newData));
 
-            const tbody = document.getElementById('leadsTableBody');
-            if (leads.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400">No leads recorded yet.</td></tr>`;
-                return;
-            }
-
-            tbody.innerHTML = leads.map(l => {
-                const isCibil = l.type === "CIBIL Report Request";
-                const typeBadge = isCibil 
-                    ? `<span class="bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full font-bold text-[10px]">CIBIL Check</span>`
-                    : `<span class="bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full font-bold text-[10px]">Loan App</span>`;
-                
-                const mobileNum = l.mobile ? l.mobile.replace(/\D/g, '') : '';
-                const waText = encodeURIComponent(`Hello ${l.name || 'Sir'}, this is Subhajit Dutta from First Loan Service regarding your inquiry.`);
-                const waLink = `https://wa.me/91${mobileNum}?text=${waText}`;
-
-                return `
-                    <tr class="hover:bg-slate-50 transition">
-                        <td class="p-3.5">${typeBadge}</td>
-                        <td class="p-3.5 text-slate-500 font-mono text-xs">${l.date || 'N/A'}</td>
-                        <td class="p-3.5 font-bold text-slate-900">${l.name || 'N/A'}</td>
-                        <td class="p-3.5 font-mono text-slate-700">${l.mobile || 'N/A'}</td>
-                        <td class="p-3.5 font-mono font-bold text-blue-700">${isCibil ? (l.pan || 'N/A') : ('₹ ' + (l.reqAmount || '0'))}</td>
-                        <td class="p-3.5 text-slate-600">${l.loanPlan || l.serviceType || 'General'}</td>
-                        <td class="p-3.5 text-center">
-                            <a href="${waLink}" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-3 py-1 rounded-lg text-xs inline-flex items-center shadow">
-                                <i class="fa-brands fa-whatsapp mr-1 text-sm"></i> Chat
-                            </a>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        function loadLeads() {
-            if (savedPass) fetchLeads(savedPass);
-        }
-
-        function logout() {
-            savedPass = '';
-            document.getElementById('adminPass').value = '';
-            document.getElementById('dashboardScreen').classList.add('hidden');
-            document.getElementById('loginScreen').classList.remove('hidden');
-        }
-
-        function exportCSV() {
-            if (currentLeads.length === 0) {
-                alert("No data to export!");
-                return;
-            }
-            let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Type,Date,Name,Mobile,PAN/Amount,Service,Employment\n";
-            currentLeads.forEach(l => {
-                csvContent += `"${l.type}","${l.date}","${l.name}","${l.mobile}","${l.pan || l.reqAmount}","${l.loanPlan || l.serviceType}","${l.employment || ''}"\n`;
-            });
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `first_loan_leads_${Date.now()}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            const msg = document.getElementById('saveSuccessMsg');
+            msg.classList.remove('hidden');
+            setTimeout(() => msg.classList.add('hidden'), 3000);
         }
     </script>
 </body>
