@@ -118,8 +118,8 @@
     </div>
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-900 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
-        <span><i class="fa-solid fa-certificate mr-1.5 text-amber-300"></i> Authorized Multi-Banking Direct Selling Partner | Instant Sanctions</span>
+    <div id="topAnnounceBar" class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-900 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
+        <span id="announceText"><i class="fa-solid fa-certificate mr-1.5 text-amber-300"></i> Authorized Multi-Banking Direct Selling Partner | Instant Sanctions</span>
     </div>
 
     <!-- NAVBAR WITH INSTANT LOANS LINK -->
@@ -150,8 +150,8 @@
                 </div>
 
                 <div class="flex items-center space-x-3">
-                    <a href="tel:+919674323575" class="hidden sm:inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl transition">
-                        <i class="fa-solid fa-phone mr-2 text-blue-600"></i> +91 96743 23575
+                    <a href="tel:+919674323575" id="navPhoneLink" class="hidden sm:inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl transition">
+                        <i class="fa-solid fa-phone mr-2 text-blue-600"></i> <span id="navPhoneText">+91 96743 23575</span>
                     </a>
                     <a href="#cibil-upgrade" class="inline-flex items-center bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-orange-500/30 transition transform hover:-translate-y-0.5">
                         Upgrade CIBIL <i class="fa-solid fa-arrow-up-right-dots ml-2 text-xs"></i>
@@ -326,7 +326,7 @@
                     <h3 class="text-xl font-bold text-slate-900 mb-2">Personal Loan</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-6">Quick funding with easy terms for personal needs or emergency requirements.</p>
                     <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
-                        <div class="flex justify-between"><span>Interest:</span><span class="text-blue-600 font-bold">Starting @ 10.49%</span></div>
+                        <div class="flex justify-between"><span>Interest:</span><span class="text-blue-600 font-bold" id="card_pl_rate">Starting @ 10.49%</span></div>
                         <div class="flex justify-between"><span>Tenure:</span><span>Up to 5 Years</span></div>
                         <div class="flex justify-between"><span>Disbursal:</span><span class="text-emerald-600 font-bold">Within 24 Hours</span></div>
                     </div>
@@ -346,7 +346,7 @@
                     <h3 class="text-xl font-bold text-slate-900 mb-2">Business & MSME Loan</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-6">Collateral-free business loans for expansion, working capital, and new stock inventory.</p>
                     <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
-                        <div class="flex justify-between"><span>Limit:</span><span class="text-indigo-600 font-bold">Up to ₹1 Crore</span></div>
+                        <div class="flex justify-between"><span>Limit:</span><span class="text-indigo-600 font-bold" id="card_bl_limit">Up to ₹1 Crore</span></div>
                         <div class="flex justify-between"><span>Collateral:</span><span>No Collateral Needed</span></div>
                         <div class="flex justify-between"><span>Eligibility:</span><span class="text-emerald-600 font-bold">Min 1 Yr Business</span></div>
                     </div>
@@ -365,7 +365,7 @@
                     <h3 class="text-xl font-bold text-slate-900 mb-2">Home Loan & LAP</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-6">High-value mortgage funding for new homes, flat purchases, or residential property.</p>
                     <div class="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
-                        <div class="flex justify-between"><span>Interest:</span><span class="text-emerald-600 font-bold">Starting @ 8.40%</span></div>
+                        <div class="flex justify-between"><span>Interest:</span><span class="text-emerald-600 font-bold" id="card_hl_rate">Starting @ 8.40%</span></div>
                         <div class="flex justify-between"><span>Tenure:</span><span>Up to 30 Years</span></div>
                         <div class="flex justify-between"><span>Assistance:</span><span class="text-emerald-600 font-bold">Legal Verification</span></div>
                     </div>
@@ -445,7 +445,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div>
                 <span class="text-white font-bold text-base block">First Loan Service</span>
-                <p class="text-slate-500 mt-1">Multi-Banking Direct Selling Agency | Subhajit Dutta (+91 96743 23575)</p>
+                <p class="text-slate-500 mt-1" id="footerPhone">Multi-Banking Direct Selling Agency | Subhajit Dutta (+91 96743 23575)</p>
             </div>
             <div class="flex flex-wrap gap-4 sm:gap-6 font-bold items-center">
                 <a href="instant-loan.html" class="text-amber-400 hover:underline">Instant NBFC Loans</a>
@@ -460,7 +460,7 @@
     </footer>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/919674323575?text=Hello%20First%20Loan%20Service,%20I%20need%20assistance%20regarding%20Loan." 
+    <a id="floatingWaBtn" href="https://wa.me/919674323575?text=Hello%20First%20Loan%20Service,%20I%20need%20assistance%20regarding%20Loan." 
        target="_blank" 
        class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-emerald-500/50 transition transform hover:scale-110">
         <i class="fa-brands fa-whatsapp"></i>
@@ -477,7 +477,27 @@
             fetch(url).catch(err => console.log('Telegram error:', err));
         }
 
-        // 1. FIRST TIME VISITOR TRAFFIC SURVEY
+        // 1. LOAD CUSTOM CONTENT FROM ADMIN PANEL
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedData = JSON.parse(localStorage.getItem('site_custom_content'));
+            if (savedData) {
+                if (savedData.announce) {
+                    document.getElementById('announceText').innerHTML = `<i class="fa-solid fa-certificate mr-1.5 text-amber-300"></i> ${savedData.announce}`;
+                }
+                if (savedData.phone) {
+                    const cleanPhone = savedData.phone.replace(/[^0-9]/g, '');
+                    document.getElementById('navPhoneText').innerText = savedData.phone;
+                    document.getElementById('navPhoneLink').href = `tel:${cleanPhone}`;
+                    document.getElementById('floatingWaBtn').href = `https://wa.me/${cleanPhone}?text=Hello%20First%20Loan%20Service,%20I%20need%20assistance%20regarding%20Loan.`;
+                    document.getElementById('footerPhone').innerText = `Multi-Banking Direct Selling Agency | Subhajit Dutta (${savedData.phone})`;
+                }
+                if (savedData.pl_rate) document.getElementById('card_pl_rate').innerText = savedData.pl_rate;
+                if (savedData.bl_limit) document.getElementById('card_bl_limit').innerText = savedData.bl_limit;
+                if (savedData.hl_rate) document.getElementById('card_hl_rate').innerText = savedData.hl_rate;
+            }
+        });
+
+        // 2. FIRST TIME VISITOR TRAFFIC SURVEY
         window.addEventListener('DOMContentLoaded', () => {
             const hasSeenSurvey = localStorage.getItem('hasSeenSourceSurvey');
             if (!hasSeenSurvey) {
@@ -504,7 +524,7 @@
             notifyTelegram(alertText);
         }
 
-        // 2. DYNAMIC LOAN MODAL APPLICATION HANDLER
+        // 3. DYNAMIC LOAN MODAL APPLICATION HANDLER
         let currentLoanType = "";
 
         function openLoanModal(type) {
@@ -710,7 +730,7 @@
             }, 2500);
         });
 
-        // 3. EMI CALCULATOR LOGIC
+        // 4. EMI CALCULATOR LOGIC
         const amountSlider = document.getElementById('loanAmount');
         const rateSlider = document.getElementById('interestRate');
         const tenureSlider = document.getElementById('tenureYears');
@@ -738,7 +758,7 @@
         tenureSlider.addEventListener('input', updateEMI);
         updateEMI();
 
-        // 4. FREE CIBIL FORM
+        // 5. FREE CIBIL FORM
         document.getElementById('heroCibilForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('cibil_name').value;
@@ -753,7 +773,7 @@
             document.getElementById('heroCibilForm').reset();
         });
 
-        // 5. CIBIL UPGRADE FORM
+        // 6. CIBIL UPGRADE FORM
         document.getElementById('cibilUpgradeForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('up_name').value;
